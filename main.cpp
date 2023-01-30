@@ -14,17 +14,14 @@ video: Chapter 2 - Part 3
  This will be the first project where the code you write will be compiled and you will be responsible for making sure it compiles before submitting it for review.
  
  
- 1) Write down the names of the 6 major primitive types available in C++  here:
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ 1) Write down the names of the 6 major primitive types available in C++  here: 
+bool
+int 
+long
+float
+char
+double
+
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
     a) give each variable declaration an initial value
         - just ignore wchar_t. you do not need to declare 3 variables of type 'wchar_t'
@@ -63,11 +60,27 @@ video: Chapter 2 - Part 3
 void variableDeclarations()
 {
     //example:
-    int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
-    
 
+    char lastKey = 'b';
+    char myGrade = 'A';
+    char firstInitial = 'C';
+    bool hadLunch = true;
+    bool likedLunch = false; 
+    bool hungry = false;
+    int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
+    int beanCount = 41;
+    int ultimateAnswer = 42;
+    long millisecondsSinceBoot = 34598734582;
+    long tickCount = 0;
+    long generations = 44404404404443;
+    float distance = 0.0f;
+    float velocity = 5.3459876f;
+    float weight = 117.345356f;
+    double pi = 3.14159265358979311599796346854;
+    double gravity = 0;
+    double trouble = 22;
     
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, lastKey, myGrade, firstInitial, hadLunch, likedLunch, hungry, beanCount, ultimateAnswer, millisecondsSinceBoot, tickCount, generations, distance, velocity, weight, pi, gravity, trouble); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -84,43 +97,77 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-
+void orderBurger(bool withCheese, int baconSlices)
+{
+    ignoreUnused(withCheese, baconSlices);
+} 
 /*
  2)
  */
-
+void makeEnvelope(int attack, int decay = 5, int sustain = 10, int release = 200) 
+{
+    ignoreUnused(attack, decay, sustain, release);
+}
 /*
  3)
  */
-
+void mixDrink(int shotsVodka, int shotsSoda, int slicesLime, int shotsWhisky, int bitters)
+{
+    ignoreUnused(shotsVodka, shotsSoda, slicesLime, shotsWhisky, bitters);
+}
 /*
  4)
  */
-
+bool runMerryGoRound(int numberOfRevolutions, float velocity = 4.004f) 
+{
+    ignoreUnused(numberOfRevolutions, velocity);
+    return {};
+}
 /*
  5)
  */
-
+bool makeNote(int pitch = 55, int velocity = 100, int duration = 25)
+{
+    ignoreUnused(pitch, velocity, duration);
+    return {};
+}
 /*
  6)
  */
-
+void microwaveDinner(int time, bool spinPlatter = true)
+{
+    ignoreUnused(time, spinPlatter);
+}
 /*
  7)
  */
 
+int calculateTaxes(int income, int expenses)
+{
+    ignoreUnused(income, expenses);
+    return {};
+}
 /*
  8)
  */
-
+void phoneHome(long phoneNumber, bool useBluetooth = true)
+{
+    ignoreUnused(phoneNumber, useBluetooth);
+}
 /*
  9)
  */
-
+void driveSubmarine(int depth, float direction, float distance)
+{    
+    ignoreUnused(depth, direction, distance);
+}
 /*
  10)
  */
-
+void runAircon(int tempurature = 21, bool fan = true)
+{
+    ignoreUnused(tempurature, fan);
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -141,27 +188,28 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    orderBurger(true, 5);
     //2)
-    
+    makeEnvelope(5, 3, 0, 9); 
+
     //3)
-    
+    mixDrink(2,2,1,0,0);
     //4)
-    
+    auto finishedRun = runMerryGoRound(50);
     //5)
-    
+    auto noteMade = makeNote(56, 100, 127);
     //6)
-    
+    microwaveDinner(45, false);
     //7)
-    
+    auto taxDue= calculateTaxes(10000, 5800);
     //8)
-    
+    phoneHome(8675309, true);
     //9)
-    
+    driveSubmarine(21, -55, 3000);
     //10)
+    runAircon(18, false);
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, taxDue, finishedRun, noteMade);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
